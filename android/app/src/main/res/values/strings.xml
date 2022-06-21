@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">agendahora_app_v1</string>
+    <string name="title_activity_main">agendahora_app_v1</string>
+    <string name="package_name">agendahora.amsolutions.cl</string>
+    <string name="custom_url_scheme">agendahora.amsolutions.cl</string>
+</resources>

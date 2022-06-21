@@ -1,0 +1,50 @@
+.background-color {
+    --background: #F13A3A;
+    --color: white;
+}
+
+ion-button {
+    background-color: #F13A3A;
+    border-radius: 3px;
+}
+
+i {
+    color: white;
+
+}
+
+.header-icon {
+    display: flex;
+    justify-content: center;
+}
+
+// .head-label {
+//     --background: rgb(154, 154, 154);
+//     --color: white;
+// }
+
+ion-card-header {
+    --background: rgb(154, 154, 154);
+
+}
+
+.boton {
+    display: inline-block;
+    background-color: #F13A3A;
+    color: white;
+    font-weight: 600;
+    border-radius: 25px;
+    padding: 15px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.foto-perfil {
+    height: 130px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    
+}

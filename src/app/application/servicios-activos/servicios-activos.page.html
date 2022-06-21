@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar class="background-color">
+    <ion-title><i class="fa-solid fa-gears fa-md text-center header-icon"></i></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <ion-grid>
+    <ion-row>
+
+
+      <ion-col size="8">
+
+      </ion-col>
+      <ion-col size="2">
+        <ion-button fill="clear" style="width: 60px; background-color: transparent;">
+          <i class="fa-solid fa-circle-info fa-2xl" style="color:rgb(226, 226, 0);"></i>
+        </ion-button>
+      </ion-col>
+
+
+
+      <!--[MODAL PARA HISTORIAL DE SOLICITUD DE VEHICULOS] -->
+      <ion-col size="2">
+        <ion-button fill="clear">
+          <i class="fa-solid fa-clock-rotate-left  fa-xl" id="trigger-view"></i>
+        </ion-button>
+
+        <ion-modal trigger="trigger-view">
+          <ng-template>
+            <ion-header translucent>
+              <ion-toolbar>
+                <ion-title>Modal Content</ion-title>
+                <ion-buttons slot="end">
+                  <ion-button (click)="dismiss()" style="color:white">X</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+
+
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+
+
+
+
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Servicios activos</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <ion-grid>
+              <ion-row>
+                <ion-accordion-group>
+                  <ion-accordion value="colors">
+                    <ion-item slot="header">
+                      <ion-label>
+
+                        <ion-grid>
+                          <ion-row>
+
+                            
+                            <ion-col size="12">
+                              Marca/Modelo
+                              <br>
+                              Patente:
+                              <br>
+                              U/Servicio:
+                            </ion-col>
+
+
+
+
+
+                          </ion-row>
+                        </ion-grid>
+
+                      </ion-label>
+                    </ion-item>
+
+                    <ion-list slot="content">
+                      <ion-item>
+                        <ion-label>
+                          <ion-grid>
+                            <ion-row>
+                              <ion-col>
+                                Marca/Modelo
+                                <br>
+                                Patente:
+                                <br>
+                                U/S:
+                                <br>
+                                <strong>Proximo servicio:</strong>
+                                <br>
+                                Fecha proximo servicio
+                                <br>
+                                <div style="background-color: rgb(183, 183, 183); padding:15px; margin-top:10px">
+                                  <strong>Detalles ultimo servicio:</strong>
+                                  <br>
+                                  Fecha proximo servicio
+                                  <br>
+                                  servicio
+                                  <br>
+                                  servicio
+                                </div>
+                              </ion-col>
+
+
+
+                            </ion-row>
+                          </ion-grid>
+
+
+                        </ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </ion-accordion>
+                </ion-accordion-group>
+
+
+
+
+
+
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

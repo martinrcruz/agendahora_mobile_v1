@@ -1,0 +1,6 @@
+{
+	"appId": "agendahora.amsolutions.cl",
+	"appName": "agendahora_app_v1",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

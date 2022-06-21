@@ -1,0 +1,73 @@
+.background-color {
+    --background: #F13A3A;
+    --color: white;
+}
+
+ion-button {
+    background-color: #F13A3A;
+    border-radius: 3px;
+}
+
+i {
+    color: white;
+}
+.header-icon {
+    display:flex;
+    justify-content: center;
+}
+// .head-label {
+//     --background: rgb(154, 154, 154);
+//     --color: white;
+// }
+
+ion-card-header {
+    --background: rgb(154, 154, 154);
+
+}
+
+ion-card-subtitle {
+    --color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+ion-card-content {
+    padding-top: 12px;
+}
+
+form {
+    background-color: #F13A3A;
+    border-radius: 5px;
+    padding: 10px 15px 50px 15px;
+    margin: 0px;
+}
+
+ion-item {
+    border-radius: 15px;
+}
+
+.label {
+    color: gray;
+}
+
+.boton {
+    display: inline-block;
+    background-color: white;
+    color: #F13A3A;
+    font-weight: 600;
+    border-radius: 25px;
+    padding: 15px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+ion-accordion-group {
+    width: 100%;
+}
+
+.head {
+    background-color: red;
+}
