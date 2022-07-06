@@ -1,0 +1,36 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form >
+          <img src="../../../assets/images/am-logo-no-background.png" alt="" class="logo">
+
+          <ion-label class="label">Correo/Usuario: </ion-label>
+          <ion-item class="form-item">
+            <ion-input #id cFormControl id="identity" placeholder="identity" type="text" name="identity"
+            formControlName="identity"></ion-input>
+          </ion-item>
+          <br>
+
+
+          <ion-label class="login-label">Contrasena: </ion-label>
+          <ion-item class="form-item">
+            <ion-input #pass id="password" placeholder="password" type="password" name="password"
+            formControlName="password" ></ion-input>
+          </ion-item>
+          <br>
+    
+          <ion-button class="login-button" (click)="loginMobile(id, pass)">
+            Ingresar
+          </ion-button>
+
+          <ion-button href="/forgot-password" class="forgot-button">
+            Olvide mi contrasena
+          </ion-button>
+
+
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

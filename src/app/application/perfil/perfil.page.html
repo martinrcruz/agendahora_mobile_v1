@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header class="text-center ion-no-border">
   <ion-toolbar class="background-color">
-    <ion-title><i class="fa-solid fa-user header-icon fa-md text-center"></i></ion-title>
+    <ion-title><i class="fa-solid fa-user header-icon fa-xl text-center header-i"></i></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,49 +8,72 @@
 
 
   <ion-grid>
+    <ion-row class="top-body-profile">
+      <ion-col class="mid-body-profile">
+
+
+        <img class="foto-perfil" src="../../../assets/images/profile/user.png" alt="">
+        <h3 class="profile-title">{{this.userData.nombre + ' ' + this.userData.apellido}}</h3>
+        <p class="profile-subtitle">{{this.userData.correo}}</p>
+
+      </ion-col>
+    </ion-row>
+    <br>
+
     <ion-row>
-      <ion-col>
 
-        <form action="">
+      <ion-col class="profile-info">
+        <ion-item>
+          <ion-text>
+            Nombre: {{this.userData.nombre + ' ' + this.userData.apellido}}
+          </ion-text>
+        </ion-item>
 
-            <img class="foto-perfil" src="../../../assets/images/profile/user.png" alt="">
-
-
-          <ion-item>
-            <ion-label class="label">Nombre: </ion-label>
-            <ion-input cFormControl id="form1" type="text"></ion-input>
-          </ion-item>
-
-
-          <br>
-
-
-          <ion-item>
-            <ion-label class="label">Correo: </ion-label>
-            <ion-input cFormControl id="form1" type="text"></ion-input>
-          </ion-item>
-          <br>
-
-          <ion-item>
-            <ion-label class="label">Nombre de usuario: </ion-label>
-            <ion-input cFormControl id="form1" type="text"></ion-input>
-          </ion-item>
-          <br>
+        <ion-item>
+          <ion-text>
+            Correo: {{this.userData.correo}}
+          </ion-text>
+        </ion-item>
 
 
-          <ion-item>
-            <ion-label class="label">Direccion: </ion-label>
-            <ion-input cFormControl id="form1" type="text"></ion-input>
-          </ion-item>
-          <br>
-
-          <button type="submit" class="boton">
-            Aceptar
-          </button>
+        <ion-item>
+          <ion-text>
+            Nombre de usuario: {{this.userData.username}}
+          </ion-text>
+        </ion-item>
 
 
-        </form>
 
+
+
+
+        <ion-item class="form-item">
+          <ion-label class="label">Nombre: </ion-label>
+          <ion-input cFormControl id="form1" type="text"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item class="form-item">
+          <ion-label class="label">Correo: </ion-label>
+          <ion-input cFormControl id="form1" type="text"></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item class="form-item">
+          <ion-label class="label">Nombre de usuario: </ion-label>
+          <ion-input cFormControl id="form1" type="text"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item class="form-item">
+          <ion-label class="label">Direccion: </ion-label>
+          <ion-input cFormControl id="form1" type="text"></ion-input>
+        </ion-item>
+        <br>
+        <button type="submit" class="boton-editar" (click)="editar()">
+          Editar usuario
+        </button>
+        <button class="boton" (click)="logout()">
+          Cerrar sesion
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>

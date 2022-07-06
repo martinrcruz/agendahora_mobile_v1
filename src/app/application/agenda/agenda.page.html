@@ -1,9 +1,266 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>agenda</ion-title>
+<ion-header class="text-center ion-no-border">
+  <ion-toolbar class="background-color">
+    <ion-title><i class="fa-solid fa-car-side header-icon fa-xl text-center header-i"></i></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+
+  <!-- <ion-grid style="height: 60px;">
+    <ion-row>
+        <ion-button fill="clear" class="agregar-button" (click)="openAddAgenda()">
+          <ion-icon name="add" slot="icon-only"></ion-icon>
+        </ion-button>
+    </ion-row>
+  </ion-grid> -->
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <ion-button class="flecha" fill="clear" (click)="prev()">
+          <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="8" class="ion-text-center">
+        <h2 style="color:black;">{{ viewTitle }}</h2>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button class="flecha" fill="clear" (click)="next()">
+          <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- <ng-template>
+    <div [ngStyle]="{'background-color': 'red'}">
+      {{view.dates[row*7+col].label}}
+    </div>
+  </ng-template> -->
+
+
+  <ng-template #template let-view="view" let-row="row" let-col="col">
+
+
+    <div *ngIf="view.dates[row*7+col].events == ''">{{view.dates[row*7+col].label}}</div>
+    <div *ngIf="view.dates[row*7+col].events != ''">
+      <div [ngStyle]="{'background': 'yellow' }">{{view.dates[row*7+col].label}}</div>
+    </div>
+
+
+    <!-- <div *ngIf="view.dates[row*7+col].events == ''">{{view.dates[row*7+col].label}}</div>
+
+    <div *ngIf="view.dates[row*7+col].events != ''">{{view.dates[row*7+col].label}}</div>
+
+
+
+    <i *ngIf="view.dates[row*7+col].events != ''" class="fa-solid fa-circle"
+      [ngStyle]="{'color': 'black' }"></i>
+
+    <i *ngIf="view.dates[row*7+col].events != '' && this.eventAvailable == '1'" class="fa-solid fa-circle"
+      [ngStyle]="{'color': 'black' }"></i>
+
+    <i *ngIf="view.dates[row*7+col].events != '' && this.eventAvailable == '2'" class="fa-solid fa-circle"
+      [ngStyle]="{'color': 'black' }"></i> -->
+  </ng-template>
+
+  <ng-template #detail let-showEventDetail="showEventDetail" let-selectedDate="selectedDate"
+    let-noEventsLabel="noEventsLabel">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-text class="sel-title">
+            Selecciona un horario:
+          </ion-text>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">08:00 - 09:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora08 == 0" class="sel-boton" (click)="addHora(selectedDate, '08:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora08 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">09:00 - 10:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora09 == 0" class="sel-boton" (click)="addHora(selectedDate, '09:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora09 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">10:00 - 11:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora10 == 0" class="sel-boton" (click)="addHora(selectedDate, '10:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora10 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">11:00 - 12:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora11 == 0" class="sel-boton" (click)="addHora(selectedDate, '11:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora11 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">12:00 - 13:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora12 == 0" class="sel-boton" (click)="addHora(selectedDate, '12:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora12 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">13:00 - 14:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora13 == 0" class="sel-boton" (click)="addHora(selectedDate, '13:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora13 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">14:00 - 15:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora14 == 0" class="sel-boton" (click)="addHora(selectedDate, '14:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora14 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">15:00 - 16:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora15 == 0" class="sel-boton" (click)="addHora(selectedDate, '15:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora15 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">16:00 - 17:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora16 == 0" class="sel-boton" (click)="addHora(selectedDate, '16:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora16 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+      <ion-row>
+        <ion-col size="6" class="sel-hora">
+          <h4 class="sel-text-hora">17:00 - 18:00</h4>
+          <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button *ngIf="this.hora17 == 0" class="sel-boton" (click)="addHora(selectedDate, '17:00:00')">
+            Agendar
+          </ion-button>
+          <ion-button *ngIf="this.hora17 == 1" class="disabled-boton" disabled>
+            No Disponible
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+
+
+    </ion-grid>
+
+
+  </ng-template>
+
+
+  <calendar [monthviewDisplayEventTemplate]="template" [monthviewEventDetailTemplate]="detail"
+    [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+    (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="eventSelect($event)"
+    (onTimeSelected)="onSelect($event)">
+  </calendar>
+  <!-- -->
+
 
 </ion-content>

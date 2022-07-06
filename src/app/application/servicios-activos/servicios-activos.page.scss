@@ -1,20 +1,56 @@
 .background-color {
-    --background: #F13A3A;
-    --color: white;
+    --background: white;
+    --color: #F13A3A;
+    height: 50px;
 }
 
-ion-button {
+.ion-button {
+    background-color: #F13A3A !important;
+    border-radius: 100%;
+    height: 56px;
+
+}
+
+.dismiss-button {
+    height: 45px;
+    margin-top: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 50px;
     background-color: #F13A3A;
-    border-radius: 3px;
+
+}
+
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0px !important;
+}
+
+ion-header ion-toolbar:first-of-type {
+    --border-width: 0px !important;
+}
+
+.close-modal {
+    border-radius: 25px;
+    padding-top: 20px;
+    color: white;
+}
+
+.form-item {
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 50px;
+}
+
+.header-i {
+    color: #F13A3A;
+    padding-top: 20px;
+
 }
 
 i {
-    color: white;
+    color: whitesmoke;
 }
-.header-icon {
-    display:flex;
-    justify-content: center;
-}
+
+
 // .head-label {
 //     --background: rgb(154, 154, 154);
 //     --color: white;
@@ -23,6 +59,21 @@ i {
 ion-card-header {
     --background: rgb(154, 154, 154);
 
+}
+
+ion-grid {
+    padding: 0px;
+    margin: 0px;
+}
+
+ion-row {
+    padding: 0px;
+    margin: 0px;
+}
+
+ion-col {
+    padding: 0px;
+    margin: 0px;
 }
 
 ion-card-subtitle {
@@ -39,7 +90,6 @@ ion-card-content {
 }
 
 form {
-    background-color: #F13A3A;
     border-radius: 5px;
     padding: 10px 15px 50px 15px;
     margin: 0px;
@@ -53,10 +103,13 @@ ion-item {
     color: gray;
 }
 
+
 .boton {
     display: inline-block;
-    background-color: white;
-    color: #F13A3A;
+    background-color: #F13A3A !important;
+    background: none;
+
+    color: white;
     font-weight: 600;
     border-radius: 25px;
     padding: 15px;
@@ -70,4 +123,73 @@ ion-accordion-group {
 
 .head {
     background-color: red;
+}
+
+.vehiculo-header {
+    background-color: rgb(180, 180, 180);
+    color: white;
+    border-radius: 40px;
+    margin: 15px 10px 0px 10px;
+    padding: 5px 0px 0px 0px;
+    height: 45px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.vehiculo-body {
+    margin: 0px 10px 0px 10px;
+    width: 100%;
+
+}
+
+.acc-nombre-vehiculo {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(68, 68, 68);
+
+}
+
+.acc-content {
+    background-color: rgba(243, 243, 243, 0.808);
+    padding: 10px;
+    margin: 0px;
+    border-radius: 15px;
+}
+
+.acc-tabla-detalle {
+    background-color: rgb(238, 238, 238);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+.descripcion {
+    max-width: 100%;
+    font-size: 14px;
+}
+
+.grafico-col {
+    background-color: rgb(248, 248, 248);
+    margin: 15px;
+    padding: 5px;
+    border-radius: 10px;
+
+}
+
+.indicador {
+    background-color: #f13a3a;
+    color: white;
+    margin: 10px;
+    border-radius: 12px;
+    text-align: center;
+
+}
+
+.indicador-number {
+    font-size: 36px;
+    font-weight: 550;
+}
+
+.indicador-text {
+    font-size: 14px;
 }

@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> {{ viewTitle }}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1 style="color:rgb(36, 36, 36);font-weight: 600;padding: 0px 15px 15px 15px;">Formulario para agendar una hora
+        </h1>
+        <p style="color:rgb(109, 109, 109);padding: 0px 25px 15px 25px; text-align: justify;">Llena este formulario para
+          enviar una solicitud para agendar una hora. Este
+          debera ser confirmado posteriormente por un administrador.</p>
+        <ion-grid>
+
+          <form #formGroup [formGroup]="agendaForm">
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="label">Fecha de agenda: </ion-label>
+                <ion-item class="form-item">
+                  <ion-input cFdormControl id="fecha_agenda" formControlName="fecha_agenda" name="fecha_agenda"
+                    type="text" disabled>{{ fechaSelected }}</ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size="6">
+                <ion-label class="label">Hora de agenda: </ion-label>
+                <ion-item class="form-item">
+                  <ion-input cFormControl id="hora_agenda" formControlName="hora_agenda" name="hora_agenda" type="text"
+                    disabled>{{ horaSelected }}</ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-label class="label">Vehiculo: </ion-label>
+                <ion-item class="form-item">
+                  <!-- <ion-select cFormControl id="vehiculo" formControlName="vehiculo" name="vehiculo" slot="end"
+                    value="Ninguno" cancelText="Cerrar" okText="Seleccionar">
+                    <ion-select-option value="1">Toyota Corolla</ion-select-option>
+                    <ion-select-option value="2">Audi A8</ion-select-option>
+                    <ion-select-option value="3">BMW i745</ion-select-option>
+                  </ion-select> -->
+
+                  <ion-select style="text-align:center;" id="vehiculo" formControlName="vehiculo" slot="end" name="vehiculo" size="9" #vehiculo>
+                  <ion-select-option *ngFor="let vehiculo of dataSource" value="{{vehiculo.id_vehiculo}}">
+                    {{vehiculo.nombre_vehiculo}}</ion-select-option>
+                </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-label class="label">Tipo de servicio: </ion-label>
+                <ion-item class="form-item">
+                  <ion-select id="tipo_servicio" formControlName="tipo_servicio" name="tipo_servicio"
+                    slot="end" value="Ninguno" cancelText="Cerrar" okText="Seleccionar" #tipo_servicio>
+                    <ion-select-option value="1">Mantencion preventiva</ion-select-option>
+                    <ion-select-option value="2">Mantencion correctiva</ion-select-option>
+                    <ion-select-option value="3">Revision y diagnostico</ion-select-option>
+                    <ion-select-option value="3">Reparacion</ion-select-option>
+
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <ion-label class="label">Observacion: </ion-label>
+                <ion-item class="form-item-desc">
+                  <ion-textarea cFormControl id="observacion" formControlName="observacion" name="observacion" rows="3" #observacion>
+                  </ion-textarea>
+
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+
+
+            <ion-button fill="clear" class="agregar-button" (click)="submit(vehiculo, tipo_servicio, observacion)">
+              Enviar solicitud
+            </ion-button>
+
+
+          </form>
+        </ion-grid>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,96 @@
+// :host ::ng-deep {
+//     // .event-detail-container {
+//     //     display: none;
+//     // }
+
+// }
+
+hr {
+    border: none;
+    height: 1px !important;
+    width: 90% !important;
+    background: rgb(119, 119, 119) !important;
+    align-items: center !important;
+    margin: auto !important;
+    font-size: 2em !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+.background-color {
+    --background: white;
+    --color: #F13A3A;
+    height: 50px;
+}
+
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0px !important;
+}
+
+ion-header ion-toolbar:first-of-type {
+    --border-width: 0px !important;
+}
+
+ion-content {
+    padding: 0px;
+    margin: 0px;
+}
+
+ion-grid {
+    padding: 0px;
+    margin: 0px;
+}
+
+ion-row {
+    padding: 0px;
+    margin: 0px;
+}
+
+ion-col {
+    padding: 0px;
+    margin: 0px;
+}
+
+.agregar-button {
+    background-color: red;
+    color: white;
+    border-radius: 40px;
+    height: 60px;
+}
+
+.flecha {
+    color: red;
+}
+
+.sel-title{
+    padding-left: 25px;
+    margin: 0px;
+    font-weight: 550;
+    font-size: 17px;
+}
+
+.sel-hora {
+    margin-left: 25px;
+}
+
+.sel-text-hora {
+    font-size: 15px;
+}
+
+.sel-text-fecha {
+    font-size: 13px;
+}
+
+.sel-boton {
+    --background: none;
+    --color: #F13A3A;
+    float: right;
+    margin-right: 35px;
+    margin-top: 10%;
+}
+.disabled-boton {
+    --background: none;
+    --color: #555555;
+    float: right;
+    margin-right: 35px;
+    margin-top: 10%;
+} 
