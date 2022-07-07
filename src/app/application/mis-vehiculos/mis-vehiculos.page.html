@@ -47,32 +47,35 @@
           <ng-template>
             <ion-header>
               <ion-toolbar style="--background: transparent;--border-width: 0px !important">
+                <ion-title style="text-align: center !important;padding-left: 20%;"><i
+                    class="fa-solid fa-clock-rotate-left fa-xl ion-text-center header-i"></i></ion-title>
                 <ion-buttons slot="end">
-                  <ion-button (click)="dismiss()" class="dismiss-button">
-                    <p class="close-modal">X</p>
+                  <ion-button (click)="dismiss()">
+                    <i class="fa-solid fa-circle-xmark fa-2xl close-modal"></i>
                   </ion-button>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
             <ion-content>
               <ion-grid>
-                <ion-row *ngFor="let itemHistorial of dataSourceHistorial">
+                <ion-row class="ion-text-center pt-1 pb-1">
+                  <ion-col class="historial-header">
+                    <ion-text class="historial-title">
+                      Historial de solicitudes
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngFor="let itemHistorial of dataSourceHistorial" class="row-historial">
                   <ion-col size="10" style="margin-bottom:2px;">
-                    <ion-list>
-                      <ion-item>
-                        <ion-label>
-                          {{itemHistorial.marca}} {{itemHistorial.modelo}}
-                          <p>Fecha solicitud: {{itemHistorial.fecha_creacion}}</p>
-                          <p>patente: {{itemHistorial.patente}}</p>
-                        </ion-label>
-                      </ion-item>
-                    </ion-list>
+                    <ion-label>
+                      {{itemHistorial.marca}} {{itemHistorial.modelo}} {{itemHistorial.version}}
+                      <p>Fecha solicitud: {{itemHistorial.fecha_creacion}}</p>
+                      <p>patente: {{itemHistorial.patente}}</p>
+                    </ion-label>
                   </ion-col>
                   <ion-col size="2">
-                    <button class="btn btn-warning fa-solid fa-eye fa-xl mt-3"
-                      style="color:white; height:65%; border-radius: 35px;"
+                    <button class="btn btn-warning fa-solid fa-eye fa-xl mt-2 detalle-servicio"
                       (click)="showDetalleSolicitud(itemHistorial.id_solicitud_vehiculo)"></button>
-
                   </ion-col>
                 </ion-row>
               </ion-grid>
@@ -266,7 +269,7 @@
                         </ion-col>
                         <ion-col size="9">
                           <p class="acc-nombre-vehiculo">
-                            {{ item.nombre_vehiculo }}
+                            {{item.nombre_marca}} {{item.nombre_modelo}} {{item.nombre_version}}
                           </p>
                           <p class="acc-patente">
                             {{ item.patente }}
@@ -285,17 +288,23 @@
                     <ion-label>
                       <ion-grid class="acc-content">
                         <ion-row>
-                          <ion-col>
-                            {{ item.nombre_marca }} {{ item.nombre_modelo }}
+                          <ion-col style="padding:10px;">
+                            {{item.nombre_marca}} {{item.nombre_modelo}} {{item.nombre_version}}
                             <br>
-                            U/S:
+                            <strong> Año: </strong>{{item.ano}}
                             <br>
-                            <strong>Proximo servicio:</strong>
+                            <strong>Color:</strong> {{item.color}}
                             <br>
-                            Fecha proximo servicio
+                            <strong>Kilometraje:</strong> 2.598
+                            <br>
+                            <strong>U/Cambio aceite: </strong>{{item.color}}
+                            <br>
+                            <strong>Fecha de compra:</strong> No definido
                             <br>
                             <div class="acc-tabla-detalle">
-                              <strong>Detalles ultimo servicio:</strong>
+                              <strong>
+                                Fecha U/Servicio: {{ item.ultimo_servicio }}
+                              </strong>
                               <br>
                               <ion-text class="descripcion ion-text-wrap">
                                 {{ item.detalle_ultimo_servicio }}
@@ -303,7 +312,10 @@
                               <br>
                             </div>
                           </ion-col>
-                          <ion-col size="2" offset="9">
+                        </ion-row>
+                        <ion-row>
+                          <ion-col>
+                            <i class="fa-solid fa-file-pdf fa-2xl pdf-btn"></i>
                           </ion-col>
                         </ion-row>
                       </ion-grid>

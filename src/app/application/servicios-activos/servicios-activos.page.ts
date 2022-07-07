@@ -30,11 +30,15 @@ export class ServiciosActivosPage implements OnInit {
   errorClass: string | any = '';
   saveResponse: any;
   dataSourceHistorial: any
+  estadoServicio: any;
+  indicadores = {
+    activos: '',
+    pendientes: '',
+    totales: ''
+  }
 
   ngOnInit() {
     this.getUserData();
-    this.getHistorialServicio(null);
-
   }
 
 
@@ -55,6 +59,8 @@ export class ServiciosActivosPage implements OnInit {
 
   ionViewDidEnter() {
     this.getServicio();
+    this.getIndicadores();
+    this.getHistorialServicio(null);
 
   }
 
@@ -77,8 +83,14 @@ export class ServiciosActivosPage implements OnInit {
           console.log(res)
           var newData = Object.entries(res)
           const datos = (newData[1][1])
-          this.dataSource = datos;
+
+          this.indicadores.activos = datos[0]['servicios_activos']
+          this.indicadores.pendientes = datos[0]['servicios_pendientes']
+          this.indicadores.totales = datos[0]['servicios_totales']
           console.log(this.dataSource)
+
+
+
         },
         error: (err) => {
           alert('Error fetching')

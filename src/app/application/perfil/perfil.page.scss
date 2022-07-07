@@ -119,7 +119,8 @@ form {
 }
 
 ion-item {
-    border-radius: 15px;
+    border-radius: 25px;
+    margin: 10px;
 }
 
 .label {
@@ -257,4 +258,10 @@ ion-accordion-group {
 
 .profile-info {
     padding: 20px;
+}
+
+.profile-container {
+    background-color: #f7f7f7;
+    margin: 0px 20px 0px 20px;
+    border-radius:25px;
 }

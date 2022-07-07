@@ -14,6 +14,7 @@ export class AgendaPage implements OnInit {
   saveResponse: any;
   dateSelected: any;
   timeSelected: any;
+ 
   horasDisponibles: any;
   eventAvailable: any;
   eventColor: any;
@@ -35,6 +36,7 @@ export class AgendaPage implements OnInit {
 
   @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
+
   constructor(
     private agendaService: AgendaService,
     private modalCtrl: ModalController
@@ -43,7 +45,6 @@ export class AgendaPage implements OnInit {
 
 
   ngOnInit() {
-    this.getCalendario();
   }
 
 
@@ -51,6 +52,12 @@ export class AgendaPage implements OnInit {
     this.getCalendario();
 
   }
+
+
+  ionViewWillEnter() {
+
+  }
+
 
   // [CALENDAR FUNCTIONS]
   next() {
@@ -76,16 +83,14 @@ export class AgendaPage implements OnInit {
     this.dateSelected = ('0' + (fechaSelected.getDate())).slice(-2) + '-' + ('0' + (fechaSelected.getMonth() + 1)).slice(-2) + '-' + fechaSelected.getFullYear();
     let horaSelected = hora
     this.timeSelected = this.dateSelected + ' ' + horaSelected
-
     this.checkAvailableHours(fecha.selectedTime);
-
     if (this.trigger) {
       this.addHora(fecha.selectedTime, horaSelected);
     }
-
     // this.event.startTime = new Date(selected.selectedTime);
     this.trigger = false;
   }
+
 
   async addHora(fecha, hora) {
     let fechaSelected = new Date(fecha.date)
@@ -98,12 +103,10 @@ export class AgendaPage implements OnInit {
       componentProps: {
         'fechaSelected': this.dateSelected,
         'horaSelected': hora,
-
       }
     });
     modal.onDidDismiss().then(data => {
       this.getCalendario();
-      console.log('refreshed')
     });
     await modal.present();
 
@@ -113,67 +116,43 @@ export class AgendaPage implements OnInit {
 
 
   // [ADD AGENDA]
-  async openAddAgenda() {
-    const modal = await this.modalCtrl.create({
-      component: CalendarModalPage,
-      cssClass: 'cal-modal',
-      backdropDismiss: false
-    });
+  // async openAddAgenda() {
+  //   const modal = await this.modalCtrl.create({
+  //     component: CalendarModalPage,
+  //     cssClass: 'cal-modal',
+  //     backdropDismiss: false
+  //   });
 
-    await modal.present();
+  //   await modal.present();
 
-    modal.onDidDismiss().then((result) => {
-      if (result.data && result.data.event) {
-        let event = result.data.event;
-        if (event.allDay) {
-          let start = event.startTime;
-          event.startTime = new Date(
-            Date.UTC(
-              start.getUTCFullYear(),
-              start.getUTCMonth(),
-              start.getUTCDate()
-            )
-          );
-          event.endTime = new Date(
-            Date.UTC(
-              start.getUTCFullYear(),
-              start.getUTCMonth(),
-              start.getUTCDate() + 1
-            )
-          );
-        }
-        this.eventSource.push(result.data.event);
-        this.myCal.loadEvents();
-      }
-    })
-  }
-
-
-  //************************//
+  //   modal.onDidDismiss().then((result) => {
+  //     if (result.data && result.data.event) {
+  //       let event = result.data.event;
+  //       if (event.allDay) {
+  //         let start = event.startTime;
+  //         event.startTime = new Date(
+  //           Date.UTC(
+  //             start.getUTCFullYear(),
+  //             start.getUTCMonth(),
+  //             start.getUTCDate()
+  //           )
+  //         );
+  //         event.endTime = new Date(
+  //           Date.UTC(
+  //             start.getUTCFullYear(),
+  //             start.getUTCMonth(),
+  //             start.getUTCDate() + 1
+  //           )
+  //         );
+  //       }
+  //       this.eventSource.push(result.data.event);
+  //       this.myCal.loadEvents();
+  //     }
+  //   })
+  // }
 
 
-  submit() {
-    var formData: any = new FormData();
-    formData.append("id_servicio", 1);
-    formData.append("nombre", null);
-    formData.append("descripcion", null);
-    formData.append("fecha_entrada", null);
-    formData.append("fecha_salida", null);
-    formData.append("id_usuario_tecnico", 1);
-    formData.append("id_cliente", 1);
-    formData.append("id_vehiculo", 1);
-    formData.append("id_usuario_cargo", 1);
 
-    this.agendaService.addAgenda(formData)
-      .subscribe({
-        next: (res) => {
-          this.saveResponse = res;
-        },
-        error: (err) => {
-          this.saveResponse = err
-        }
-      })
-  }
 
   getCalendario() {
     this.agendaService.getAgenda()
@@ -192,8 +171,7 @@ export class AgendaPage implements OnInit {
               eventColor: 'black'
             })
           }
-
-          this.myCal.loadEvents();
+          this.myCal.loadEvents()
 
         },
         error: (err: any) => {

@@ -20,12 +20,12 @@
     </ion-row>
     <br>
 
-    <ion-row>
+    <ion-row class="profile-container">
 
       <ion-col class="profile-info">
         <ion-item>
           <ion-text>
-            Nombre: {{this.userData.nombre + ' ' + this.userData.apellido}}
+            Nombres: {{this.userData.nombre + ' ' + this.userData.apellido}}
           </ion-text>
         </ion-item>
 
@@ -38,7 +38,40 @@
 
         <ion-item>
           <ion-text>
-            Nombre de usuario: {{this.userData.username}}
+            Usuario: {{this.userData.username}}
+          </ion-text>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-text>
+            Direccion: No aplica
+          </ion-text>
+        </ion-item>
+
+        
+        <ion-item>
+          <ion-text>
+            Ciudad: La Serena, Chile
+          </ion-text>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-text>
+            Celular: +569 1234 4321
+          </ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-text>
+            Telefono: No aplica
+          </ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-text>
+            Fecha de nac: 13/03/1983
           </ion-text>
         </ion-item>
 
@@ -46,31 +79,10 @@
 
 
 
-
-        <ion-item class="form-item">
-          <ion-label class="label">Nombre: </ion-label>
-          <ion-input cFormControl id="form1" type="text"></ion-input>
-        </ion-item>
-        <br>
-        <ion-item class="form-item">
-          <ion-label class="label">Correo: </ion-label>
-          <ion-input cFormControl id="form1" type="text"></ion-input>
-        </ion-item>
-        <br>
-
-        <ion-item class="form-item">
-          <ion-label class="label">Nombre de usuario: </ion-label>
-          <ion-input cFormControl id="form1" type="text"></ion-input>
-        </ion-item>
-        <br>
-        <ion-item class="form-item">
-          <ion-label class="label">Direccion: </ion-label>
-          <ion-input cFormControl id="form1" type="text"></ion-input>
-        </ion-item>
-        <br>
+<!--        
         <button type="submit" class="boton-editar" (click)="editar()">
           Editar usuario
-        </button>
+        </button> -->
         <button class="boton" (click)="logout()">
           Cerrar sesion
         </button>

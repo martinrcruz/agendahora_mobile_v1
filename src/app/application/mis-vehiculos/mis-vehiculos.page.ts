@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActionSheetController, ModalController } from '@ionic/angular';
 import { modalController } from '@ionic/core';
@@ -14,10 +14,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class MisVehiculosPage implements OnInit {
 
-
-
-
   @ViewChild('barChart') barChart;
+  @Input() user_id: any;
 
   bars: any;
   colorArray: any;
@@ -29,7 +27,7 @@ export class MisVehiculosPage implements OnInit {
   ) { }
 
   userData = {
-    id: '',
+    id: 2,
     username: '',
     group: ''
   };
@@ -54,10 +52,8 @@ export class MisVehiculosPage implements OnInit {
     estado: ''
   }
 
-
-
-
   ngOnInit() {
+    console.log(this.user_id)
     this.getSelectorMarca();
     this.getUserData();
 
@@ -78,14 +74,11 @@ export class MisVehiculosPage implements OnInit {
       })
   }
 
-
-
   ionViewDidEnter() {
+    this.getUserData();
     this.graficoLinea();
     this.getVehiculo();
     this.getHistorialSolicitud();
-
-
   }
 
   graficoLinea() {
@@ -128,8 +121,6 @@ export class MisVehiculosPage implements OnInit {
           this.historialVehiculo.nro_motor = newData['nro_motor']
 
           this.showModal()
-
-
           console.log(newData)
 
         },
@@ -288,6 +279,7 @@ export class MisVehiculosPage implements OnInit {
   getHistorialSolicitud() {
     var user_id: any = new FormData();
     user_id.append("user_id", this.userData.id);
+    console.log(this.userData.id)
     this.vehiculoService.getHistorialSolicitud(user_id)
       .subscribe({
         next: (res) => {

@@ -12,15 +12,15 @@
     <ion-row style="justify-content:center;">
 
       <ion-col size="3" class="indicador">
-        <h1 class="indicador-number">1</h1>
+        <h1 class="indicador-number">{{this.indicadores.activos}}</h1>
         <p class="indicador-text">Servicios Activos</p>
       </ion-col>
       <ion-col size="3" class="indicador">
-        <h1 class="indicador-number">4</h1>
+        <h1 class="indicador-number">{{this.indicadores.pendientes}}</h1>
         <p class="indicador-text">Servicios Pendientes</p>
       </ion-col>
       <ion-col size="3" class="indicador">
-        <h1 class="indicador-number">12</h1>
+        <h1 class="indicador-number">{{this.indicadores.totales}}</h1>
         <p class="indicador-text">Servicios Totales</p>
       </ion-col>
     </ion-row>
@@ -47,31 +47,35 @@
           <ng-template>
             <ion-header>
               <ion-toolbar style="--background: transparent;--border-width: 0px !important">
-                <ion-title>Historial de servicios</ion-title>
+                <ion-title style="text-align: center !important;padding-left: 20%;"><i
+                    class="fa-solid fa-clock-rotate-left fa-xl ion-text-center header-i"></i></ion-title>
                 <ion-buttons slot="end">
-                  <ion-button (click)="dismiss()" class="dismiss-button">
-                    <p class="close-modal">X</p>
+                  <ion-button (click)="dismiss()">
+                    <i class="fa-solid fa-circle-xmark fa-2xl close-modal"></i>
                   </ion-button>
                 </ion-buttons>
               </ion-toolbar>
             </ion-header>
             <ion-content>
               <ion-grid>
-                <ion-row *ngFor="let itemHistorial of dataSourceHistorial">
+                <ion-row class="ion-text-center pt-1 pb-1">
+                  <ion-col class="historial-header">
+                    <ion-text class="historial-title">
+                      Historial de solicitudes
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngFor="let itemHistorial of dataSourceHistorial" class="row-historial">
                   <ion-col size="10" style="margin-bottom:2px;">
-                    <ion-list>
-                      <ion-item>
-                        <ion-label>
-                          Nombre Vehiculo {{itemHistorial.marca}} {{itemHistorial.modelo}}
-                          <p>Fecha solicitud: </p>
-                          <p>patente: </p>
-                        </ion-label>
-                      </ion-item>
-                    </ion-list>
+                    <ion-label>
+                      {{itemHistorial.marca}} {{itemHistorial.modelo}} {{itemHistorial.version}}
+                      <p>Fecha solicitud: </p>
+                      <p>patente: </p>
+                    </ion-label>
                   </ion-col>
                   <ion-col size="2">
-                    <button class="btn btn-warning fa-solid fa-eye fa-xl mt-3"
-                      style="color:white; height:65%; border-radius: 35px;" (click)="showDetalleServicio(itemHistorial.id_servicio)"></button>
+                    <button class="btn btn-warning fa-solid fa-eye fa-xl mt-2 detalle-servicio"
+                      (click)="showDetalleServicio(itemHistorial.id_servicio)"></button>
                   </ion-col>
                 </ion-row>
               </ion-grid>
@@ -110,13 +114,13 @@
                         </ion-col>
                         <ion-col size="9">
                           <p class="acc-nombre-vehiculo">
-                            {{ item.nombre }}
+                            {{ item.tipo_servicio }}
                           </p>
                           <p class="acc-patente ion-text-wrap" style="color:rgb(92, 92, 92);">
-                            {{ item.descripcion }}
+                            {{ item.marca }} {{ item.modelo }} {{ item.version }}
                           </p>
                           <p class="acc-ult-servicio">
-                            Estado: {{ item.estado }}
+                            Estado: {{ item.estado_servicio }}
                           </p>
                         </ion-col>
                       </ion-row>
@@ -129,25 +133,41 @@
                     <ion-label>
                       <ion-grid class="acc-content">
                         <ion-row>
-                          <ion-col>
-                            {{ item.nombre_marca }} {{ item.nombre_modelo }}
+                          <ion-col style="padding:10px;">
+                            <strong>Tecnico a cargo:</strong> {{ item.nombre_tecnico }}
                             <br>
-                            U/S:
+                            <strong>Supervisor:</strong> {{ item.nombre_supervisor }}
                             <br>
-                            <strong>Proximo servicio:</strong>
+                            <strong>Fecha agendada:</strong> {{ item.fecha_agenda }}
                             <br>
-                            Fecha proximo servicio
+                            <strong>Fecha entrada:</strong> {{ item.fecha_entrada }}
                             <br>
+                            <strong>Fecha salida:</strong> {{ item.fecha_salida }}
+                            <br>
+                            <strong>Detalle:</strong> No aplica.
+                            <br>
+                            <strong>Informacion de Servicio: </strong>
                             <div class="acc-tabla-detalle">
-                              <strong>Detalles ultimo servicio:</strong>
+                              <strong>{{ item.tipo_servicio }}</strong>
                               <br>
+
                               <ion-text class="descripcion ion-text-wrap">
-                                {{ item.detalle_ultimo_servicio }}
+                                {{ item.detalle }}
                               </ion-text>
                               <br>
                             </div>
                           </ion-col>
-                          <ion-col size="2" offset="9">
+                        </ion-row>
+                        <ion-row>
+                          <ion-col size="8">
+
+                          </ion-col>
+
+                          <ion-col size="2">
+                            <i class="fas fa-comment-dots fa-2xl msg-btn"></i>
+                          </ion-col>
+                          <ion-col size="2">
+                            <i class="fa-solid fa-file-pdf fa-2xl pdf-btn"></i>
                           </ion-col>
                         </ion-row>
                       </ion-grid>

@@ -44,41 +44,57 @@
 
   <ng-template #template let-view="view" let-row="row" let-col="col">
 
+    <div class.with-event="view.dates[row*7+col].events.length">
+      {{view.dates[row*7+col].label}}
+      <div class="indicator-container">
+
+        <!-- SI HAY HARTO DISPONIBLE-->
+        <!-- <div *ngIf="view.dates[row*7+col].events.length < 3 && view.dates[row*7+col].events.length > 0"> -->
+        <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"> </div>
+        <!-- </div> -->
+
+        <!-- SI HAY MEDIO DISPONIBLE-->
+        <!-- <div *ngIf="view.dates[row*7+col].events.length > 4 && view.dates[row*7+col].events.length < 7">
+          <div class="event-indicator-med" *ngFor="let e of view.dates[row*7+col].events"> </div>
+        </div> -->
+
+        <!-- SI HAY POCO DISPONIBLE-->
+        <!-- <div *ngIf="view.dates[row*7+col].events.length >= 7 && view.dates[row*7+col].events.length < 10">
+          <div class="event-indicator-low" *ngFor="let e of view.dates[row*7+col].events"> </div>
+        </div> -->
+
+        <!-- SI NO HAY DISPONIBLE-->
+        <!-- <div *ngIf="view.dates[row*7+col].events.length == 10">
+          <div class="event-indicator-none" *ngFor="let e of view.dates[row*7+col].events"> </div>
+        </div> -->
+
+      </div>
+    </div>
+
+    <!-- 
 
     <div *ngIf="view.dates[row*7+col].events == ''">{{view.dates[row*7+col].label}}</div>
     <div *ngIf="view.dates[row*7+col].events != ''">
       <div [ngStyle]="{'background': 'yellow' }">{{view.dates[row*7+col].label}}</div>
-    </div>
-
-
-    <!-- <div *ngIf="view.dates[row*7+col].events == ''">{{view.dates[row*7+col].label}}</div>
-
-    <div *ngIf="view.dates[row*7+col].events != ''">{{view.dates[row*7+col].label}}</div>
+    </div> -->
 
 
 
-    <i *ngIf="view.dates[row*7+col].events != ''" class="fa-solid fa-circle"
-      [ngStyle]="{'color': 'black' }"></i>
-
-    <i *ngIf="view.dates[row*7+col].events != '' && this.eventAvailable == '1'" class="fa-solid fa-circle"
-      [ngStyle]="{'color': 'black' }"></i>
-
-    <i *ngIf="view.dates[row*7+col].events != '' && this.eventAvailable == '2'" class="fa-solid fa-circle"
-      [ngStyle]="{'color': 'black' }"></i> -->
   </ng-template>
 
   <ng-template #detail let-showEventDetail="showEventDetail" let-selectedDate="selectedDate"
     let-noEventsLabel="noEventsLabel">
-    <ion-grid>
+    <ion-grid class="sel-container">
+
       <ion-row>
-        <ion-col>
+        <ion-col class="sel-title-container">
           <ion-text class="sel-title">
-            Selecciona un horario:
+            Selecciona un bloque disponible:
           </ion-text>
         </ion-col>
 
       </ion-row>
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">08:00 - 09:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -92,10 +108,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">09:00 - 10:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -109,10 +125,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">10:00 - 11:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -126,10 +142,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">11:00 - 12:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -143,10 +159,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">12:00 - 13:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -160,10 +176,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">13:00 - 14:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -177,10 +193,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">14:00 - 15:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -194,10 +210,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">15:00 - 16:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -211,10 +227,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">16:00 - 17:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -228,10 +244,10 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
-      <ion-row>
+      <ion-row class="sel-row">
         <ion-col size="6" class="sel-hora">
           <h4 class="sel-text-hora">17:00 - 18:00</h4>
           <p class="sel-text-fecha"> {{ this.dateSelected }} </p>
@@ -245,7 +261,7 @@
           </ion-button>
         </ion-col>
       </ion-row>
-      <hr>
+      <!-- <hr> -->
 
 
 
@@ -254,12 +270,18 @@
 
   </ng-template>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <calendar [monthviewDisplayEventTemplate]="template" [monthviewEventDetailTemplate]="detail"
+          [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+          (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="eventSelect($event)"
+          (onTimeSelected)="onSelect($event)">
+        </calendar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <calendar [monthviewDisplayEventTemplate]="template" [monthviewEventDetailTemplate]="detail"
-    [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
-    (onTitleChanged)="onViewTitleChanged($event)" (onEventSelected)="eventSelect($event)"
-    (onTimeSelected)="onSelect($event)">
-  </calendar>
   <!-- -->
 
 

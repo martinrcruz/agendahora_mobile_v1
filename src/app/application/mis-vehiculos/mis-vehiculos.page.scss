@@ -1,181 +1,412 @@
-.background-color {
-    --background: white;
-    --color: #F13A3A;
-    height: 50px;
+.ios {
+    .background-color {
+        --background: white;
+        --color: #F13A3A;
+        height: 50px;
+    }
+
+    .ion-button {
+        background-color: #F13A3A !important;
+        border-radius: 100%;
+        height: 56px;
+
+    }
+
+    .dismiss-button {
+        height: 45px;
+        margin-top: 10px;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 50px;
+        background-color: #F13A3A;
+
+    }
+
+    .form-icon {
+        color: gray;
+        justify-content: center;
+
+    }
+
+    .header-ios ion-toolbar:last-of-type {
+        --border-width: 0px !important;
+    }
+
+    ion-header ion-toolbar:first-of-type {
+        --border-width: 0px !important;
+    }
+
+    .close-modal {
+        border-radius: 25px;
+        padding-top: 20px;
+        color: white;
+    }
+
+    .form-item {
+        border: 1px solid rgb(207, 207, 207);
+        border-radius: 50px;
+    }
+
+    .header-i {
+        text-align: center;
+        padding-left: 85px;
+        color: #F13A3A;
+
+    }
+
+
+    i {
+        color: whitesmoke;
+    }
+
+    // .head-label {
+    //     --background: rgb(154, 154, 154);
+    //     --color: white;
+    // }
+
+    ion-card-header {
+        --background: rgb(154, 154, 154);
+
+    }
+
+    ion-grid {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    ion-row {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    ion-col {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    ion-card-subtitle {
+        --color: white;
+        text-align: center;
+        font-weight: 400;
+        font-size: 17px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    }
+
+    ion-card-content {
+        padding-top: 12px;
+    }
+
+    form {
+        border-radius: 5px;
+        padding: 10px 15px 50px 15px;
+        margin: 0px;
+    }
+
+    ion-item {
+        border-radius: 15px;
+    }
+
+    .label {
+        color: gray;
+    }
+
+
+    .boton {
+        display: inline-block;
+        background-color: #F13A3A !important;
+        background: none;
+
+        color: white;
+        font-weight: 600;
+        border-radius: 25px;
+        padding: 15px;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    ion-accordion-group {
+        width: 100%;
+    }
+
+    .head {
+        background-color: red;
+    }
+
+    .vehiculo-header {
+        background-color: rgb(180, 180, 180);
+        color: white;
+        border-radius: 40px;
+        margin: 15px 10px 0px 10px;
+        padding: 5px 0px 0px 0px;
+        height: 45px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .vehiculo-body {
+        margin: 0px 10px 0px 10px;
+        width: 100%;
+
+    }
+
+    .acc-nombre-vehiculo {
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(68, 68, 68);
+
+    }
+
+    .acc-content {
+        background-color: rgba(243, 243, 243, 0.808);
+        padding: 10px;
+        margin: 0px;
+        border-radius: 15px;
+    }
+
+    .acc-tabla-detalle {
+        background-color: rgb(238, 238, 238);
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 15px;
+    }
+
+    .descripcion {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    .grafico-col {
+        background-color: rgb(248, 248, 248);
+        margin: 15px;
+        padding: 5px;
+        border-radius: 10px;
+
+    }
 }
 
-.ion-button {
-    background-color: #F13A3A !important;
-    border-radius: 100%;
-    height: 56px;
-
-}
-
-.dismiss-button {
-    height: 45px;
-    margin-top: 10px;
-    padding-left: 12px;
-    padding-right: 12px;
-    border-radius: 50px;
-    background-color: #F13A3A;
-
-}
-
-.form-icon {
-    color: gray;
-    justify-content: center;
-
-}
-
-.header-ios ion-toolbar:last-of-type {
-    --border-width: 0px !important;
-}
-
-ion-header ion-toolbar:first-of-type {
-    --border-width: 0px !important;
-}
-
-.close-modal {
-    border-radius: 25px;
-    padding-top: 20px;
-    color: white;
-}
-
-.form-item {
-    border: 1px solid rgb(207, 207, 207);
-    border-radius: 50px;
-}
-
-.header-i {
-    color: #F13A3A;
-
-}
-
-i {
-    color: whitesmoke;
-}
-
-// .head-label {
-//     --background: rgb(154, 154, 154);
-//     --color: white;
-// }
-
-ion-card-header {
-    --background: rgb(154, 154, 154);
-
-}
-
-ion-grid {
-    padding: 0px;
-    margin: 0px;
-}
-
-ion-row {
-    padding: 0px;
-    margin: 0px;
-}
-
-ion-col {
-    padding: 0px;
-    margin: 0px;
-}
-
-ion-card-subtitle {
-    --color: white;
-    text-align: center;
-    font-weight: 400;
-    font-size: 17px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-}
-
-ion-card-content {
-    padding-top: 12px;
-}
-
-form {
-    border-radius: 5px;
-    padding: 10px 15px 50px 15px;
-    margin: 0px;
-}
-
-ion-item {
-    border-radius: 15px;
-}
-
-.label {
-    color: gray;
-}
 
 
-.boton {
-    display: inline-block;
-    background-color: #F13A3A !important;
-    background: none;
+//ANDROID
+.md {
+    .background-color {
+        --background: white;
+        --color: #F13A3A;
+        height: 50px;
+    }
 
-    color: white;
-    font-weight: 600;
-    border-radius: 25px;
-    padding: 15px;
-    margin-top: 30px;
-    width: 100%;
-}
+    .ion-button {
+        background-color: #F13A3A !important;
+        border-radius: 100%;
+        height: 52px;
 
-ion-accordion-group {
-    width: 100%;
-}
+    }
 
-.head {
-    background-color: red;
-}
+    .dismiss-button {
+        height: 50px;
+        margin-top: 10px;
+        padding-top: 0px;
+        padding-left: 12px;
+        padding-right: 12px;
+        margin-bottom: 6px;
+        border-radius: 100%;
+        background-color: #F13A3A;
 
-.vehiculo-header {
-    background-color: rgb(180, 180, 180);
-    color: white;
-    border-radius: 40px;
-    margin: 15px 10px 0px 10px;
-    padding: 5px 0px 0px 0px;
-    height: 45px;
-    font-size: 24px;
-    text-align: center;
-}
+    }
 
-.vehiculo-body {
-    margin: 0px 10px 0px 10px;
-    width: 100%;
+    .form-icon {
+        color: gray;
+        justify-content: center;
 
-}
+    }
 
-.acc-nombre-vehiculo {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgb(68, 68, 68);
+    .header-md ion-toolbar:last-of-type {
+        --border-width: 0px !important;
+    }
 
-}
+    .header ion-toolbar:last-of-type {
+        --border-width: 0px !important;
+    }
 
-.acc-content {
-    background-color: rgba(243, 243, 243, 0.808);
-    padding: 10px;
-    margin: 0px;
-    border-radius: 15px;
-}
+    ion-header ion-toolbar:first-of-type {
+        --border-width: 0px !important;
+    }
 
-.acc-tabla-detalle {
-    background-color: rgb(238, 238, 238);
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 15px;
-}
+    .close-modal {
+        color: #F13A3A;
+    }
 
-.descripcion {
-    max-width: 100%;
-    font-size: 14px;
-}
+    .form-item {
+        border: 1px solid rgb(207, 207, 207);
+        border-radius: 50px;
+    }
 
-.grafico-col {
-    background-color: rgb(248, 248, 248);
-    margin: 15px;
-    padding: 5px;
-    border-radius: 10px;
+    .header-i {
+        color: #F13A3A;
 
+    }
+
+    i {
+        color: whitesmoke;
+    }
+
+    // .head-label {
+    //     --background: rgb(154, 154, 154);
+    //     --color: white;
+    // }
+
+    ion-card-header {
+        --background: rgb(154, 154, 154);
+
+    }
+
+    ion-grid {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    ion-row {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    ion-col {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    ion-card-subtitle {
+        --color: white;
+        text-align: center;
+        font-weight: 400;
+        font-size: 17px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    }
+
+    ion-card-content {
+        padding-top: 12px;
+    }
+
+    form {
+        border-radius: 5px;
+        padding: 10px 15px 50px 15px;
+        margin: 0px;
+    }
+
+    ion-item {
+        border-radius: 15px;
+    }
+
+    .label {
+        color: gray;
+    }
+
+
+    .boton {
+        display: inline-block;
+        background-color: #F13A3A !important;
+        background: none;
+
+        color: white;
+        font-weight: 600;
+        border-radius: 25px;
+        padding: 15px;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    ion-accordion-group {
+        width: 100%;
+    }
+
+    .head {
+        background-color: red;
+    }
+
+    .vehiculo-header {
+        background-color: rgb(180, 180, 180);
+        color: white;
+        border-radius: 40px;
+        margin: 15px 10px 0px 10px;
+        padding: 5px 0px 0px 0px;
+        height: 45px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .vehiculo-body {
+        margin: 0px 10px 0px 10px;
+        width: 100%;
+
+    }
+
+    .acc-nombre-vehiculo {
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(68, 68, 68);
+
+    }
+
+    .acc-content {
+        background-color: rgba(243, 243, 243, 0.808);
+        padding: 10px;
+        margin: 0px;
+        border-radius: 15px;
+    }
+
+    .acc-tabla-detalle {
+        background-color: rgb(238, 238, 238);
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 15px;
+    }
+
+    .descripcion {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    .grafico-col {
+        background-color: rgb(248, 248, 248);
+        margin: 15px;
+        padding: 5px;
+        border-radius: 10px;
+
+    }
+
+    .detalle-servicio {
+        color: white;
+        height: 75%;
+        border-radius: 35px;
+    }
+
+    .historial-header {
+        background-color: rgb(189, 189, 189);
+        color: white;
+        border-radius: 40px;
+        margin: 5px 10px 0px 10px;
+        padding: 5px 0px 0px 0px;
+        height: 45px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .historial-title {
+        font-size: 21px;
+    }
+
+    .row-historial {
+        background-color: rgba(247, 247, 247, 0.637);
+        margin: 5px 12px 5px 12px;
+        padding: 20px;
+        border-radius: 25px;
+    }
+
+    .pdf-btn {
+        color: red;
+        float: right;
+        padding: 25px 25px 25px 25px;
+        
+    }
 }
