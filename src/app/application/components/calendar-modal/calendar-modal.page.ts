@@ -12,10 +12,12 @@ import { MisVehiculosService } from 'src/app/services/mis-vehiculos.service';
 })
 export class CalendarModalPage implements OnInit {
 
-  @Output() parentReloader: EventEmitter<boolean> = new EventEmitter()
+  // @Output() refreshTable = new EventEmitter<string>();
 
   @Input() fechaSelected: string;
   @Input() horaSelected: string;
+  @Output() refreshCalendar: EventEmitter<string> = new EventEmitter();
+
   public dateSelected: any;
   calendar = {
     mode: 'month',
@@ -52,15 +54,15 @@ export class CalendarModalPage implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.fechaSelected)
     this.getUserData();
   }
 
 
   ionViewDidEnter() {
-    this.getVehiculo();
   }
+
   ngAfterViewInit() {
+    this.getVehiculo();
     setTimeout(() => {
       this.modalReady = true;
     }, 0);
@@ -106,6 +108,8 @@ export class CalendarModalPage implements OnInit {
 
   // [MODAL FUNCTIONS]
   save() {
+    console.log(this.event)
+    this.refreshCalendar.emit();
     this.modalCtrl.dismiss({ event: this.event })
 
   }
@@ -155,8 +159,14 @@ export class CalendarModalPage implements OnInit {
       get2 = suma.toString()
     }
 
-    var fechaSelected = new Date(fecha_agenda)
-    var fecha_formated = fechaSelected.getFullYear() + '-' + fechaSelected.getDate() + '-' + (fechaSelected.getMonth() + 1)
+    var dia = fecha_agenda.substring(0, 2)
+    var mes = fecha_agenda.substring(3, 5)
+    var ano = fecha_agenda.substring(6, 10)
+
+    var fecha_formated = ano + '-' + mes + '-' + dia
+    // var fechaSelected = new Date(fecha_agenda) //la detecta como fecha invalida
+
+    // var fecha_formated = fechaSelected.getFullYear() + '-' + fechaSelected.getDate() + '-' + (fechaSelected.getMonth() + 1)
 
     var hora_fin = get1 + get2 + ':00:00';
 
@@ -172,6 +182,8 @@ export class CalendarModalPage implements OnInit {
     formData.append("fecha_agenda", fecha_formated);
     formData.append("agenda_inicio", agenda_inicio);
     formData.append("agenda_fin", agenda_fin);
+    formData.append("fecha_entrada", agenda_inicio);
+    formData.append("fecha_salida", agenda_fin);
     formData.append("id_cliente", this.userData.id);
     formData.append("id_vehiculo", vehiculo.value);
 
@@ -181,9 +193,6 @@ export class CalendarModalPage implements OnInit {
           this.saveResponse = res;
           console.log(this.saveResponse)
           this.save();
-          var response = true
-          this.parentReloader.emit(response)
-
         },
         error: (err) => {
           this.saveResponse = err

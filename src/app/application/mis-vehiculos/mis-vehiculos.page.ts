@@ -165,28 +165,6 @@ export class MisVehiculosPage implements OnInit {
 
 
 
-  async showInformacion() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Informacion sobre este modulo',
-      message:
-        '<ion-grid>' +
-        '<ion-row>' +
-        '<ion-col>' +
-        '<ion-text>' +
-        ' ID SOLICITUD VEHICULO : ' + this.historialVehiculo.id_solicitud_vehiculo + ' <br>' +
-        '</ion-text>' +
-        '</ion-col>' +
-        '</ion-row>' +
-        '</ion-grid>',
-      buttons: ['OK']
-    });
-
-    await alert.present();
-
-    const { role } = await alert.onDidDismiss();
-    // console.log('onDidDismiss resolved with role', role);
-  }
 
 
 

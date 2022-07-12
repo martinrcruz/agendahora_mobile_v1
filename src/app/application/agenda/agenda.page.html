@@ -83,8 +83,15 @@
   </ng-template>
 
   <ng-template #detail let-showEventDetail="showEventDetail" let-selectedDate="selectedDate"
-    let-noEventsLabel="noEventsLabel">
-    <ion-grid class="sel-container">
+    let-noEventsLabel="noEventsLabel" (refreshCalendar)="refreshTable()">
+    <ion-grid  *ngIf="this.eventAvailable == 2">
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <h3 style="color:red;">No hay horas disponibles!</h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="sel-container" *ngIf="this.eventAvailable != 2">
 
       <ion-row>
         <ion-col class="sel-title-container">

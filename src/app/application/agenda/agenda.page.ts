@@ -14,7 +14,7 @@ export class AgendaPage implements OnInit {
   saveResponse: any;
   dateSelected: any;
   timeSelected: any;
- 
+
   horasDisponibles: any;
   eventAvailable: any;
   eventColor: any;
@@ -105,14 +105,18 @@ export class AgendaPage implements OnInit {
         'horaSelected': hora,
       }
     });
+
     modal.onDidDismiss().then(data => {
-      this.getCalendario();
+      window.location.reload();
     });
     await modal.present();
 
   }
 
-
+  refreshTable(){
+    console.log('get refreshed')
+    this.getCalendario();
+  }
 
 
   // [ADD AGENDA]
@@ -167,8 +171,7 @@ export class AgendaPage implements OnInit {
               title: datos[i].title,
               startTime: startTime,
               endTime: endTime,
-              allDay: false,
-              eventColor: 'black'
+              allDay: false
             })
           }
           this.myCal.loadEvents()
@@ -232,37 +235,10 @@ export class AgendaPage implements OnInit {
           ) {
             this.eventAvailable = '2';
             this.eventColor = 'red';
-          }
-          if (
-            this.hora08 == 1 ||
-            this.hora09 == 1 ||
-            this.hora10 == 1 ||
-            this.hora11 == 1 ||
-            this.hora12 == 1 ||
-            this.hora13 == 1 ||
-            this.hora14 == 1 ||
-            this.hora15 == 1 ||
-            this.hora16 == 1 ||
-            this.hora17 == 1
-          ) {
+          } else {
             this.eventAvailable = '1';
-            this.eventColor = 'yellow';
           }
-          if (
-            this.hora08 == 0 &&
-            this.hora09 == 0 &&
-            this.hora10 == 0 &&
-            this.hora11 == 0 &&
-            this.hora12 == 0 &&
-            this.hora13 == 0 &&
-            this.hora14 == 0 &&
-            this.hora15 == 0 &&
-            this.hora16 == 0 &&
-            this.hora17 == 0) {
-            this.eventAvailable = '0';
-            this.eventColor = 'green';
-          }
-
+     
         },
         error: (err: any) => {
           alert('Error fetching')
